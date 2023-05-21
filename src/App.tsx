@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <Card>
+      <Card cardTitle='Test'>
 
         <div>
           <span>hello world</span>

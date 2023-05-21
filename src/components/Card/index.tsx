@@ -1,14 +1,17 @@
-import React from 'react';
+import React from "react";
 
+import "./style.css";
 
 interface ICardProps {
- children: React.ReactNode
+  children: React.ReactNode;
+  cardTitle: string;
 }
 
-export function Card ({ children }: ICardProps) {
-    return (
-        <div style={{outline: '7px solid blue', borderRadius: '9px'}}>
-            {children}
-        </div>
-    )
+export function Card({ children, cardTitle }: ICardProps) {
+  return (
+    <div className="card">
+      <span className="card-title">{cardTitle}</span>
+      <div className="card-wrapper">{children}</div>
+    </div>
+  );
 }
