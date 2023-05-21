@@ -10,7 +10,7 @@ function App() {
   const { actions, states } = useApp();
   return (
     <>
-      <Card dynamicClass="test">
+      <Card cardTitle="Test">
         <div>
           <input
             onChange={(e) => {
