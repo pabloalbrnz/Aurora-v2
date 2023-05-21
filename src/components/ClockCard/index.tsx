@@ -39,7 +39,11 @@ export interface IClockCardPropos {}
 export function ClockCard({}) {
   return (
     <div className="clock-wrapper">
-      <span className="hour-now">{time()}</span>
+      <span className="hour-now">
+        {setInterval(() => {
+          time();
+        })}
+      </span>
       <div className="clock-info-wrapper">
         <span className="weekday">
           {date.toLocaleDateString("en", { weekday: "long" })}
