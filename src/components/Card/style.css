@@ -1,5 +1,5 @@
 .card {
-  width: 23rem;
+  min-width: 23rem;
   height: 23rem;
   padding: 2rem;
   background-color: var(--not-quite-white);
