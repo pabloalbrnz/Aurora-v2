@@ -4,7 +4,7 @@
   padding: 2rem;
   background-color: var(--not-quite-white);
   border-radius: 4rem;
-  box-shadow: 1px -1px 2px #11111111;
+  box-shadow: -1px 1px 2px #1111112c;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,4 +22,10 @@
   justify-content: center;
 }
 
+.card-sm {
+  width: 23rem;
+}
+
+.card-md {
+  width: calc((23rem * 2) + 2rem);
 }

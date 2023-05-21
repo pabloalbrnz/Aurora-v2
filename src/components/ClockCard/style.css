@@ -1,0 +1,42 @@
+.clock-wrapper {
+  margin-top: 2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+
+  align-items: center;
+}
+
+.hour-now {
+  font-size: 6rem;
+  font-weight: 500;
+
+  background: var(--accent-alt-opacity);
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  max-width: 18rem;
+}
+
+.clock-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: -0.5rem;
+}
+
+.weekday {
+  font-size: 2rem;
+  font-weight: 500;
+
+  color: var(--dark-gray);
+}
+
+.today {
+  font-size: 2.25rem;
+  font-weight: 300;
+
+  color: var(--dark-gray);
+}

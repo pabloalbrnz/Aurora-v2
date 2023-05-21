@@ -3,6 +3,10 @@
 :root {
   --accent: #5417cf;
   --accent-alt: #b49fdf;
+  --accent-alt-opacity: #b49fdf5c;
+  --gray: #ccc;
+  --dark-gray: #999;
+  --not-quite-black: #111;
   --not-quite-white: #e8ecf1;
 }
 
