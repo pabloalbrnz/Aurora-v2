@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css'
 
 
 interface ICardProps {
@@ -7,7 +8,7 @@ interface ICardProps {
 
 export function Card ({ children }: ICardProps) {
     return (
-        <div style={{outline: '7px solid blue', borderRadius: '9px'}}>
+        <div className='card'>
             {children}
         </div>
     )

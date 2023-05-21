@@ -12,7 +12,7 @@ function App() {
       <Card>
 
         <div>
-          <span>hello world</span>
+          <span>{import.meta.env.VITE_API_PERSONAL_KEY}</span>
         </div>
 
       </Card>
