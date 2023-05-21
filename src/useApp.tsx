@@ -9,11 +9,12 @@ export function useApp() {
   function resetHelperText() {
     setHelperText("");
   }
+
   function checkIfInputExists(input: string): boolean {
     if (input.trim().length) {
       return true;
-      setHelperText("Digite uma cidade para realizar a busca");
     }
+    setHelperText("Digite uma cidade para poder realizar a busca");
 
     return false;
   }

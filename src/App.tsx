@@ -10,10 +10,29 @@ function App() {
   const { actions, states } = useApp();
   return (
     <>
-      <Card>
+      <Card dynamicClass="test">
         <div>
-          <span>{import.meta.env.VITE_API_PERSONAL_KEY}</span>
+          <input
+            onChange={(e) => {
+              states.setCity(e.target.value);
+              actions.resetHelperText();
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                actions.getCityWeather;
+              }
+            }}
+          />
+          <button
+            onClick={() => {
+              actions.getCityWeather();
+            }}
+          >
+            teste
+          </button>
         </div>
+        {states.weatherData && <span>{states.weatherData.temp}</span>}
+        <span>{states.helperText}</span>
       </Card>
     </>
   );
