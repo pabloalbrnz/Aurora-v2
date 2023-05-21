@@ -3,15 +3,17 @@ import { IGetWeatherDataResponse } from "../../data/getWeatherData";
 export interface IWeatherCardProps {
   weatherCardData: IGetWeatherDataResponse;
   citySearchvalue: string;
-  setCitySearchValue: (value: React.SetStateAction<string>) => void;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   handleSubmit: () => void;
+  errorHelperText: string;
 }
 
 export function WeatherCard({
   weatherCardData,
   citySearchvalue,
-  setCitySearchValue,
   handleSubmit,
+  errorHelperText,
+  onChange,
 }: IWeatherCardProps) {
   return (
     <div>
@@ -19,7 +21,7 @@ export function WeatherCard({
         <input
           value={citySearchvalue}
           onChange={(e) => {
-            setCitySearchValue(e.target.value);
+            onChange(e);
           }}
         />
         <button
@@ -30,6 +32,7 @@ export function WeatherCard({
           Search
         </button>
       </div>
+      <span>{errorHelperText}</span>
       {weatherCardData && (
         <div>
           <p>{weatherCardData.temp} °</p>

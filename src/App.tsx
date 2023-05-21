@@ -15,11 +15,15 @@ function App() {
       <Card cardTitle="Weather">
         <WeatherCard
           citySearchvalue={states.city}
-          setCitySearchValue={(e) => states.setCity(e)}
           weatherCardData={states.weatherData as IGetWeatherDataResponse}
           handleSubmit={() => {
             actions.getCityWeather();
           }}
+          onChange={(e) => {
+            states.setCity(e.target.value);
+            actions.resetHelperText();
+          }}
+          errorHelperText={states.helperText}
         />
       </Card>
     </>
