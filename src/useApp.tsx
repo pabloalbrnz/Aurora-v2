@@ -22,6 +22,7 @@ export function useApp() {
     if (checkIfInputExists(city)) {
       const data = await getWeatherData(city);
       setWheatherData(data);
+      setCity("");
     }
   }
 
