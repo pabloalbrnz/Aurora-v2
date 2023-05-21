@@ -23,6 +23,11 @@ export function WeatherCard({
           onChange={(e) => {
             onChange(e);
           }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSubmit();
+            }
+          }}
         />
         <button
           onClick={() => {
