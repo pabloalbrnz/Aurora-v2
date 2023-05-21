@@ -5,34 +5,22 @@ import "./App.css";
 import { Card } from "../src/components/Card";
 
 import { useApp } from "./useApp";
+import { WeatherCard } from "./components/WeatherCard";
+import { IGetWeatherDataResponse } from "./data/getWeatherData";
 
 function App() {
   const { actions, states } = useApp();
   return (
     <>
-      <Card cardTitle="Test">
-        <div>
-          <input
-            onChange={(e) => {
-              states.setCity(e.target.value);
-              actions.resetHelperText();
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                actions.getCityWeather;
-              }
-            }}
-          />
-          <button
-            onClick={() => {
-              actions.getCityWeather();
-            }}
-          >
-            teste
-          </button>
-        </div>
-        {states.weatherData && <span>{states.weatherData.temp}</span>}
-        <span>{states.helperText}</span>
+      <Card cardTitle="Weather">
+        <WeatherCard
+          citySearchvalue={states.city}
+          setCitySearchValue={(e) => states.setCity(e)}
+          weatherCardData={states.weatherData as IGetWeatherDataResponse}
+          handleSubmit={() => {
+            actions.getCityWeather();
+          }}
+        />
       </Card>
     </>
   );
