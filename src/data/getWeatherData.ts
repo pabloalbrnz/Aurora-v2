@@ -1,6 +1,6 @@
 import { cityWeatherDTO } from "./dto/cityWeatherDTO";
 
-interface IGetWeatherDataResponse {
+export interface IGetWeatherDataResponse {
   temp: string;
 }
 
