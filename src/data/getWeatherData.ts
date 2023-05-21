@@ -1,7 +1,9 @@
 import { cityWeatherDTO } from "./dto/cityWeatherDTO";
 
 export interface IGetWeatherDataResponse {
-  temp: string;
+  temp: number;
+  humidity: number;
+  pressure: number;
 }
 
 export async function getWeatherData(
@@ -13,11 +15,15 @@ export async function getWeatherData(
 
   const result = await fetch(URL);
 
-  const data = result.json().then((data: cityWeatherDTO) => {
-    return {
-      temp: data.base,
-    };
-  });
+  const data: Promise<IGetWeatherDataResponse> = result
+    .json()
+    .then((data: cityWeatherDTO) => {
+      return {
+        temp: data.main.temp,
+        humidity: data.main.humidity,
+        pressure: data.main.pressure,
+      };
+    });
 
   return data;
 }
