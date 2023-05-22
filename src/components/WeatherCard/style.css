@@ -84,7 +84,7 @@
   margin-top: -1.5rem;
   display: flex;
   align-items: center;
-  gap: calc(2rem - 24px);
+  gap: 1.5rem;
 }
 
 .temperature-string {
