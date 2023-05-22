@@ -14,10 +14,10 @@ function App() {
   return (
     <>
       <div className="cards">
-        <Card cardTitle="Clock" variant="sm">
+        <Card cardTitle="Clock" dynamicClass="clock" variant="sm">
           <ClockCard />
         </Card>
-        <Card cardTitle="Weather" variant="sm">
+        <Card cardTitle="Weather" dynamicClass="weather" variant="sm">
           <WeatherCard
             citySearchvalue={states.city}
             weatherCardData={states.weatherData as IGetWeatherDataResponse}

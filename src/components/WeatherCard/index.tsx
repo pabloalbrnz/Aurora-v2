@@ -1,5 +1,7 @@
 import { IGetWeatherDataResponse } from "../../data/getWeatherData";
 
+import { WeatherIcon } from "../WeatherIcon";
+
 export interface IWeatherCardProps {
   weatherCardData: IGetWeatherDataResponse;
   citySearchvalue: string;
@@ -40,9 +42,17 @@ export function WeatherCard({
       <span>{errorHelperText}</span>
       {weatherCardData && (
         <div>
-          <p>{weatherCardData.temp} °</p>
-          <p>{weatherCardData.humidity} %</p>
-          <p>{weatherCardData.pressure}hPa</p>
+          <div className="temperature">
+            <WeatherIcon
+              display=""
+              icon={weatherCardData.icon ? weatherCardData.icon : ""}
+            />
+            <span className="temperature-string">
+              {weatherCardData.temp.toString().substring(0, 2)}°
+            </span>
+          </div>
+          <span className="humidity">{weatherCardData.humidity}%</span>
+          <span className="pressure">{weatherCardData.pressure}hPa</span>
         </div>
       )}
     </div>

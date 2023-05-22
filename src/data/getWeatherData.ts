@@ -2,6 +2,7 @@ import { cityWeatherDTO } from "./dto/cityWeatherDTO";
 
 export interface IGetWeatherDataResponse {
   temp: number;
+  icon: string;
   humidity: number;
   pressure: number;
 }
@@ -9,7 +10,7 @@ export interface IGetWeatherDataResponse {
 export async function getWeatherData(
   city: string
 ): Promise<IGetWeatherDataResponse> {
-  const key = import.meta.env.VITE_API_PERSONAL_KEY;
+  const key = import.meta.env.VITE_WEATHER_API_KEY;
 
   const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
 
@@ -20,6 +21,7 @@ export async function getWeatherData(
     .then((data: cityWeatherDTO) => {
       return {
         temp: data.main.temp,
+        icon: data.weather[0].icon,
         humidity: data.main.humidity,
         pressure: data.main.pressure,
       };

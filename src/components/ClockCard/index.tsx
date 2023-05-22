@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import "./style.css";
 
 const months = [
@@ -19,6 +21,16 @@ const date = new Date();
 const month = date.getMonth();
 
 function Clock() {
+  const [date, setDate] = useState(new Date());
+
+  function refreshClock() {
+    setDate(new Date());
+  }
+
+  useEffect(() => {
+    refreshClock();
+  });
+
   return (
     <span className="hour-now">
       {date.toLocaleTimeString().substring(0, 5)}

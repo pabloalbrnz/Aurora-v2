@@ -5,7 +5,7 @@ import "./style.css";
 interface ICardProps {
   children: React.ReactNode;
   cardTitle: string;
-  dynamicClass?: "card-string";
+  dynamicClass: string;
   variant: "sm" | "md" | "lg" | "hmd" | "hlg" | "vmd" | "vlg";
 }
 
