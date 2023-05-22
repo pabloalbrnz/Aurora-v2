@@ -2,7 +2,24 @@ import { IGetWeatherDataResponse } from "../../data/getWeatherData";
 
 import "./style.css";
 
-import { SmileyBlank } from "@phosphor-icons/react";
+import {
+  Cloud,
+  CloudFog,
+  CloudLightning,
+  CloudMoon,
+  CloudRain,
+  CloudSnow,
+  CloudSun,
+  Lightning,
+  Moon,
+  MoonStars,
+  Rainbow,
+  RainbowCloud,
+  Snowflake,
+  Sun,
+  SunHorizon,
+  Wind,
+} from "@phosphor-icons/react";
 
 import { WeatherIcon } from "../WeatherIcon";
 
@@ -15,6 +32,31 @@ export interface IWeatherCardProps {
     text: string;
     icon: JSX.Element;
   };
+}
+
+export function RandomWeatherIcon() {
+  const icons = [
+    <Cloud weight="fill" />,
+    <CloudFog weight="fill" />,
+    <CloudLightning weight="fill" />,
+    <CloudMoon weight="fill" />,
+    <CloudRain weight="fill" />,
+    <CloudSnow weight="fill" />,
+    <CloudSun weight="fill" />,
+    <Lightning weight="fill" />,
+    <Moon weight="fill" />,
+    <MoonStars weight="fill" />,
+    <Rainbow weight="fill" />,
+    <RainbowCloud weight="fill" />,
+    <Snowflake weight="fill" />,
+    <Sun weight="fill" />,
+    <SunHorizon weight="fill" />,
+    <Wind weight="fill" />,
+  ];
+
+  const icon = Math.floor(Math.random() * icons.length);
+
+  return icons[icon];
 }
 
 export function WeatherCard({
@@ -78,9 +120,7 @@ export function WeatherCard({
         </div>
       ) : (
         <div className="weather-card-nothing">
-          <div className="weather-card-before">
-            <SmileyBlank size={32} weight="fill" />
-          </div>
+          <div className="weather-card-before">{RandomWeatherIcon()}</div>
           <div>
             <span className="error-message">
               {errorHelperText.icon}
