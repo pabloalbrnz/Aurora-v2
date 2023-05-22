@@ -9,7 +9,11 @@ export interface IWeatherCardProps {
   citySearchvalue: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   handleSubmit: () => void;
-  errorHelperText: string;
+  errorHelperText: {
+    text: string;
+    icon: JSX.Element
+  };
+
 }
 
 export function WeatherCard({
@@ -45,7 +49,9 @@ export function WeatherCard({
           Search
         </button>
       </div>
-      <span className="error-message">{errorHelperText}</span>
+      <div>
+      <span className="error-message">{errorHelperText.icon}{errorHelperText.text}</span>
+      </div>
       {weatherCardData && (
         <div className="weather-wrapper">
           <span className="city-name">{weatherCardData.name}</span>
