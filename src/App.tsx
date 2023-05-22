@@ -8,6 +8,7 @@ import { useApp } from "./useApp";
 import { WeatherCard } from "./components/WeatherCard";
 import { IGetWeatherDataResponse } from "./data/getWeatherData";
 import { ClockCard } from "./components/ClockCard";
+import { Warning } from "@phosphor-icons/react";
 
 function App() {
   const { actions, states } = useApp();
@@ -28,7 +29,7 @@ function App() {
               states.setCity(e.target.value);
               actions.resetHelperText();
             }}
-            errorHelperText={states.helperText}
+            errorHelperText={{text: states.helperText, icon: <Warning size={16} />}}
           />
         </Card>
       </div>
