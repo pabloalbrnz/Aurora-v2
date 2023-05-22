@@ -14,7 +14,8 @@ export function useApp() {
     if (input.trim().length) {
       return true;
     }
-    setHelperText("! Type a city to find out");
+    setHelperText("Type a city to find out");
+    setWheatherData(undefined);
 
     return false;
   }

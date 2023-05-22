@@ -2,6 +2,8 @@ import { IGetWeatherDataResponse } from "../../data/getWeatherData";
 
 import "./style.css";
 
+import { SmileyBlank } from "@phosphor-icons/react";
+
 import { WeatherIcon } from "../WeatherIcon";
 
 export interface IWeatherCardProps {
@@ -11,9 +13,8 @@ export interface IWeatherCardProps {
   handleSubmit: () => void;
   errorHelperText: {
     text: string;
-    icon: JSX.Element
+    icon: JSX.Element;
   };
-
 }
 
 export function WeatherCard({
@@ -49,10 +50,7 @@ export function WeatherCard({
           Search
         </button>
       </div>
-      <div>
-      <span className="error-message">{errorHelperText.icon}{errorHelperText.text}</span>
-      </div>
-      {weatherCardData && (
+      {weatherCardData ? (
         <div className="weather-wrapper">
           <span className="city-name">{weatherCardData.name}</span>
           <div className="temperature">
@@ -69,6 +67,24 @@ export function WeatherCard({
             </span>
             <span className="pressure">
               <b>Pressure:</b> {weatherCardData.pressure}hPa
+            </span>
+          </div>
+          <div>
+            <span className="error-message">
+              {errorHelperText.icon}
+              {errorHelperText.text}
+            </span>
+          </div>
+        </div>
+      ) : (
+        <div className="weather-card-nothing">
+          <div className="weather-card-before">
+            <SmileyBlank size={32} weight="fill" />
+          </div>
+          <div>
+            <span className="error-message">
+              {errorHelperText.icon}
+              {errorHelperText.text}
             </span>
           </div>
         </div>

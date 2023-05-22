@@ -66,11 +66,10 @@
 .error-message {
   font-size: 0.8rem;
   color: var(--warn);
-  margin-top: -1.75rem;
-}
-
-.error-message svg {
-  font-size: 1rem;
+  margin-top: -0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .weather-wrapper {
@@ -117,4 +116,23 @@
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--not-quite-black);
+}
+
+.weather-card-nothing {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.weather-card-before svg {
+  color: var(--accent-alt-opacity);
+  height: 6rem;
+  width: 6rem;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+}
+
+.weather-card-before svg:hover {
+  color: var(--accent-alt);
 }
