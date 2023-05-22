@@ -1,5 +1,5 @@
 .weather-icon {
   height: 6rem;
   width: 6rem;
+  background: radial-gradient(var(--gray), transparent 75%);
 }
-

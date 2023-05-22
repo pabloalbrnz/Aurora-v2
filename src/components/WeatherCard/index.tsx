@@ -48,6 +48,7 @@ export function WeatherCard({
       <span className="error-message">{errorHelperText}</span>
       {weatherCardData && (
         <div className="weather-wrapper">
+          <span className="city-name">{weatherCardData.name}</span>
           <div className="temperature">
             <WeatherIcon
               icon={weatherCardData.icon ? weatherCardData.icon : ""}

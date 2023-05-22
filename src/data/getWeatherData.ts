@@ -5,6 +5,7 @@ export interface IGetWeatherDataResponse {
   icon: string;
   humidity: number;
   pressure: number;
+  name: string;
 }
 
 export async function getWeatherData(
@@ -24,6 +25,7 @@ export async function getWeatherData(
         icon: data.weather[0].icon,
         humidity: data.main.humidity,
         pressure: data.main.pressure,
+        name: data.name,
       };
     });
 

@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
 
-  gap: 2rem;
+  gap: 1.25rem;
 }
 
 .input-wrapper {
@@ -64,13 +64,9 @@
 }
 
 .error-message {
-  display: flex;
-  gap: 0.25rem;
-  margin-top: -1.5rem;
   font-size: 0.8rem;
   color: var(--warn);
-  position: absolute;
-  margin-top: -8.75rem;
+  margin-top: -1.75rem;
 }
 
 .error-message svg {
@@ -81,7 +77,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .weather-wrapper .temperature {
@@ -103,4 +99,11 @@
   color: var(--dark-gray);
   font-size: 2rem;
   align-items: center;
+  margin-top: -1.25rem;
+}
+
+.city-name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--not-quite-black)
 }
