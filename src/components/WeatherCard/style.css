@@ -90,7 +90,18 @@
 .temperature-string {
   font-size: 4rem;
   font-weight: 500;
+}
+
+.temperature {
   color: var(--not-quite-black);
+  transition: all 0.5s ease;
+}
+.temperature:hover {
+  color: var(--accent);
+}
+
+.temperature:hover img {
+  background: var(--accent-alt);
 }
 
 .weather-info-wrapper {
@@ -105,5 +116,5 @@
 .city-name {
   font-size: 1.5rem;
   font-weight: 500;
-  color: var(--not-quite-black)
+  color: var(--not-quite-black);
 }

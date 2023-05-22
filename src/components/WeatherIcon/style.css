@@ -1,5 +1,11 @@
 .weather-icon {
-  height: 6rem;
-  width: 6rem;
-  background: radial-gradient(var(--gray), transparent 75%);
+  height: 5rem;
+  width: 5rem;
+  background: var(--accent-alt-opacity);
+  border-radius: 1.5rem;
+  transition: all 0.5s ease;
+}
+
+.weather-icon:hover {
+  background: var(--accent-alt);
 }
