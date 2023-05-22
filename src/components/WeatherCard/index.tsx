@@ -1,5 +1,7 @@
 import { IGetWeatherDataResponse } from "../../data/getWeatherData";
 
+import "./style.css";
+
 import { WeatherIcon } from "../WeatherIcon";
 
 export interface IWeatherCardProps {
@@ -18,9 +20,11 @@ export function WeatherCard({
   onChange,
 }: IWeatherCardProps) {
   return (
-    <div>
-      <div>
+    <div className="weather-card">
+      <div className="input-wrapper">
         <input
+          className="weather-input"
+          placeholder="Your City"
           value={citySearchvalue}
           onChange={(e) => {
             onChange(e);
@@ -32,27 +36,34 @@ export function WeatherCard({
           }}
         />
         <button
+          className="weather-search"
           onClick={() => {
             handleSubmit();
           }}
+          type="submit"
         >
           Search
         </button>
       </div>
-      <span>{errorHelperText}</span>
+      <span className="error-message">{errorHelperText}</span>
       {weatherCardData && (
-        <div>
+        <div className="weather-wrapper">
           <div className="temperature">
             <WeatherIcon
-              display=""
               icon={weatherCardData.icon ? weatherCardData.icon : ""}
             />
             <span className="temperature-string">
               {weatherCardData.temp.toString().substring(0, 2)}°
             </span>
           </div>
-          <span className="humidity">{weatherCardData.humidity}%</span>
-          <span className="pressure">{weatherCardData.pressure}hPa</span>
+          <div className="weather-info-wrapper">
+            <span className="humidity">
+              <b>Humidity:</b> {weatherCardData.humidity}%
+            </span>
+            <span className="pressure">
+              <b>Pressure:</b> {weatherCardData.pressure}hPa
+            </span>
+          </div>
         </div>
       )}
     </div>

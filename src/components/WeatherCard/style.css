@@ -1,0 +1,106 @@
+.weather-card {
+  margin-top: 2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 2rem;
+}
+
+.input-wrapper {
+  padding: calc(0.25rem + 2px);
+}
+
+.weather-input {
+  padding: 1rem;
+  border-radius: 1rem 0 0 1rem;
+  border: none;
+  background: var(--accent-alt-opacity);
+  color: var(--not-quite-black);
+
+  transition: all 0.5s ease;
+}
+
+.input-wrapper:focus-within {
+  outline: 4px solid var(--accent);
+  border-radius: 1.25rem;
+}
+
+.weather-input::placeholder {
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+.weather-input:focus::placeholder {
+  color: var(--not-quite-black);
+  font-weight: 400;
+}
+
+.weather-input:focus {
+  background: var(--accent-alt);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.weather-input:focus,
+.weather-search:focus {
+  outline: none;
+}
+
+.weather-search {
+  padding: 1rem;
+  border: none;
+  background: var(--accent);
+  color: var(--not-quite-white);
+  border-radius: 0 1rem 1rem 0;
+  cursor: pointer;
+}
+
+.weather-search:hover {
+  background: var(--dark-accent);
+}
+
+.error-message {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: -1.5rem;
+  font-size: 0.8rem;
+  color: var(--warn);
+  position: absolute;
+  margin-top: -8.75rem;
+}
+
+.error-message svg {
+  font-size: 1rem;
+}
+
+.weather-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.weather-wrapper .temperature {
+  margin-top: -1.5rem;
+  display: flex;
+  align-items: center;
+  gap: calc(2rem - 24px);
+}
+
+.temperature-string {
+  font-size: 4rem;
+  font-weight: 500;
+  color: var(--not-quite-black);
+}
+
+.weather-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  color: var(--dark-gray);
+  font-size: 2rem;
+  align-items: center;
+}

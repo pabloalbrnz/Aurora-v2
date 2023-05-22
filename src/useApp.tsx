@@ -14,7 +14,7 @@ export function useApp() {
     if (input.trim().length) {
       return true;
     }
-    setHelperText("Digite uma cidade para poder realizar a busca");
+    setHelperText("! Type a city to find out");
 
     return false;
   }

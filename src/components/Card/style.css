@@ -4,7 +4,7 @@
   padding: 2rem;
   background-color: var(--not-quite-white);
   border-radius: 4rem;
-  box-shadow: -1px 1px 2px #1111112c;
+  box-shadow: -1px 1px 5px #1111112c;
   display: flex;
   flex-direction: column;
   align-items: center;

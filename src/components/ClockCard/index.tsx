@@ -38,6 +38,42 @@ function Clock() {
   );
 }
 
+function Week() {
+  const [date, setDate] = useState(new Date());
+
+  function refreshWeek() {
+    setDate(new Date());
+  }
+
+  useEffect(() => {
+    refreshWeek();
+  });
+
+  return (
+    <span className="weekday">
+      {date.toLocaleDateString("en", { weekday: "long" })}
+    </span>
+  );
+}
+
+function Today() {
+  const [date, setDate] = useState(new Date());
+
+  function refreshClock() {
+    setDate(new Date());
+  }
+
+  useEffect(() => {
+    refreshClock();
+  });
+
+  return (
+    <span className="today">
+      {`${date.getDate()} ${months[month]}, ${date.getFullYear()}`}
+    </span>
+  );
+}
+
 export interface IClockCardPropos {}
 
 export function ClockCard({}) {
@@ -45,12 +81,8 @@ export function ClockCard({}) {
     <div className="clock-wrapper">
       {Clock()}
       <div className="clock-info-wrapper">
-        <span className="weekday">
-          {date.toLocaleDateString("en", { weekday: "long" })}
-        </span>
-        <span className="today">{`${date.getDate()} ${
-          months[month]
-        }, ${date.getFullYear()}`}</span>
+        {Week()}
+        {Today()}
       </div>
     </div>
   );

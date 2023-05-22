@@ -1,8 +1,5 @@
 .weather-icon {
-  height: 2rem;
-  width: 2rem;
+  height: 6rem;
+  width: 6rem;
 }
 
-.hidden {
-    display: none;
-}

@@ -2,12 +2,14 @@
 
 :root {
   --accent: #5417cf;
+  --dark-accent: #2f0d73;
   --accent-alt: #b49fdf;
   --accent-alt-opacity: #b49fdf5c;
   --gray: #ccc;
   --dark-gray: #999;
   --not-quite-black: #111;
   --not-quite-white: #e8ecf1;
+  --warn: #ed4245;
 }
 
 body {
