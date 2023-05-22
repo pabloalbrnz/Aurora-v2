@@ -3,6 +3,7 @@ import { IGetWeatherDataResponse } from "../../data/getWeatherData";
 import "./style.css";
 
 import {
+  CircleNotch,
   Cloud,
   CloudFog,
   CloudLightning,
@@ -120,7 +121,13 @@ export function WeatherCard({
         </div>
       ) : (
         <div className="weather-card-nothing">
-          <div className="weather-card-before">{RandomWeatherIcon()}</div>
+          <div className="weather-card-before">
+            {citySearchvalue.length == 0 || !citySearchvalue ? (
+              RandomWeatherIcon()
+            ) : (
+              <span className="loading-notch"><CircleNotch weight="bold" /></span>
+            )}
+          </div>
           <div>
             <span className="error-message">
               {errorHelperText.icon}
