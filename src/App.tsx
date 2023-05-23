@@ -32,6 +32,7 @@ function App() {
             onChange={(e) => {
               states.setCity(e.target.value);
               actions.resetHelperText();
+              states.setWheatherData(undefined);
             }}
             errorHelperText={{
               text: states.helperText,

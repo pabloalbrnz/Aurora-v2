@@ -33,6 +33,7 @@ export function useApp() {
       setCity,
       weatherData,
       helperText,
+      setWheatherData,
     },
     actions: {
       getCityWeather,
