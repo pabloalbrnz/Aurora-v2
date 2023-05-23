@@ -130,7 +130,7 @@
   height: 6rem;
   width: 6rem;
   transition: all 0.5s ease;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .weather-card-before svg:hover {
@@ -166,9 +166,16 @@
   }
 }
 .loading-notch svg {
+  height: 6rem;
+  width: 6rem;
   -webkit-animation: notch 5s linear infinite;
   -moz-animation: notch 5s linear infinite;
   -ms-animation: notch 5s linear infinite;
   -o-animation: notch 5s linear infinite;
   animation: notch 5s linear infinite;
+}
+
+.loading-notch {
+  color: var(--accent);
+  margin-top: 2rem;
 }

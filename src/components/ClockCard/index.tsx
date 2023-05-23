@@ -32,7 +32,14 @@ function Clock() {
   });
 
   return (
-    <span className="hour-now">
+    <span
+      className="hour-now"
+      onClick={() => {
+        navigator.clipboard.writeText(
+          date.toLocaleTimeString().substring(0, 5)
+        );
+      }}
+    >
       {date.toLocaleTimeString().substring(0, 5)}
     </span>
   );

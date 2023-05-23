@@ -93,7 +93,7 @@ export function WeatherCard({
       ) : (
         <div className="weather-card-nothing">
           {actions.SetLoadingWeather(citySearchvalue) ? (
-            <div>
+            <div className="loading-notch">
               <elements.CircleNotch />
             </div>
           ) : (
