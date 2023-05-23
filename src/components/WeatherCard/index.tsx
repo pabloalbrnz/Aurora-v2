@@ -23,6 +23,7 @@ import {
 } from "@phosphor-icons/react";
 
 import { WeatherIcon } from "../WeatherIcon";
+import React from "react";
 
 export interface IWeatherCardProps {
   weatherCardData: IGetWeatherDataResponse;
@@ -67,6 +68,16 @@ export function WeatherCard({
   errorHelperText,
   onChange,
 }: IWeatherCardProps) {
+  const [newIcon, setNewIcon] = React.useState<React.JSX.Element>();
+  function SetUniqueIcon() {
+    if (weatherCardData === undefined) {
+      setNewIcon(RandomWeatherIcon());
+    }
+  }
+
+  React.useEffect(() => {
+    SetUniqueIcon();
+  }, [weatherCardData]);
   return (
     <div className="weather-card">
       <div className="input-wrapper">
@@ -121,13 +132,7 @@ export function WeatherCard({
         </div>
       ) : (
         <div className="weather-card-nothing">
-          <div className="weather-card-before">
-            {citySearchvalue.length == 0 || !citySearchvalue ? (
-              RandomWeatherIcon()
-            ) : (
-              <span className="loading-notch"><CircleNotch weight="bold" /></span>
-            )}
-          </div>
+          <div className="weather-card-before">{newIcon}</div>
           <div>
             <span className="error-message">
               {errorHelperText.icon}
