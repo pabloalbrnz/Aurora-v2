@@ -2,28 +2,9 @@ import { IGetWeatherDataResponse } from "../../data/getWeatherData";
 
 import "./style.css";
 
-import {
-  CircleNotch,
-  Cloud,
-  CloudFog,
-  CloudLightning,
-  CloudMoon,
-  CloudRain,
-  CloudSnow,
-  CloudSun,
-  Lightning,
-  Moon,
-  MoonStars,
-  Rainbow,
-  RainbowCloud,
-  Snowflake,
-  Sun,
-  SunHorizon,
-  Wind,
-} from "@phosphor-icons/react";
-
 import { WeatherIcon } from "../WeatherIcon";
 import React from "react";
+import { useWeatherCard } from "./useWeatherCard";
 
 export interface IWeatherCardProps {
   weatherCardData: IGetWeatherDataResponse;
@@ -36,31 +17,6 @@ export interface IWeatherCardProps {
   };
 }
 
-export function RandomWeatherIcon() {
-  const icons = [
-    <Cloud weight="fill" />,
-    <CloudFog weight="fill" />,
-    <CloudLightning weight="fill" />,
-    <CloudMoon weight="fill" />,
-    <CloudRain weight="fill" />,
-    <CloudSnow weight="fill" />,
-    <CloudSun weight="fill" />,
-    <Lightning weight="fill" />,
-    <Moon weight="fill" />,
-    <MoonStars weight="fill" />,
-    <Rainbow weight="fill" />,
-    <RainbowCloud weight="fill" />,
-    <Snowflake weight="fill" />,
-    <Sun weight="fill" />,
-    <SunHorizon weight="fill" />,
-    <Wind weight="fill" />,
-  ];
-
-  const icon = Math.floor(Math.random() * icons.length);
-
-  return icons[icon];
-}
-
 export function WeatherCard({
   weatherCardData,
   citySearchvalue,
@@ -68,16 +24,19 @@ export function WeatherCard({
   errorHelperText,
   onChange,
 }: IWeatherCardProps) {
+  const { actions, elements, states } = useWeatherCard();
   const [newIcon, setNewIcon] = React.useState<React.JSX.Element>();
+
   function SetUniqueIcon() {
     if (weatherCardData === undefined) {
-      setNewIcon(RandomWeatherIcon());
+      setNewIcon(actions.RandomWeatherIcon());
     }
   }
 
   React.useEffect(() => {
     SetUniqueIcon();
   }, [weatherCardData]);
+
   return (
     <div className="weather-card">
       <div className="input-wrapper">
@@ -87,6 +46,7 @@ export function WeatherCard({
           value={citySearchvalue}
           onChange={(e) => {
             onChange(e);
+            // actions.SetLoadingWeather(citySearchvalue);
           }}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
@@ -132,13 +92,21 @@ export function WeatherCard({
         </div>
       ) : (
         <div className="weather-card-nothing">
-          <div className="weather-card-before">{newIcon}</div>
-          <div>
-            <span className="error-message">
-              {errorHelperText.icon}
-              {errorHelperText.text}
-            </span>
-          </div>
+          {actions.SetLoadingWeather(citySearchvalue) ? (
+            <div>
+              <elements.CircleNotch />
+            </div>
+          ) : (
+            <>
+              <div className="weather-card-before">{newIcon}</div>
+              <div>
+                <span className="error-message">
+                  {errorHelperText.icon}
+                  {errorHelperText.text}
+                </span>
+              </div>
+            </>
+          )}
         </div>
       )}
     </div>
