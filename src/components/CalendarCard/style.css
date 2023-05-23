@@ -1,0 +1,46 @@
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.today-month {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 20rem;
+}
+
+.prev-button,
+.next-button {
+  padding: 0.25rem 0.75rem;
+  aspect-ratio: 1/1;
+  border: none;
+  background: var(--accent-alt-opacity);
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  background: var(--accent-alt);
+  color: var(--not-quite-black);
+  cursor: pointer;
+}
+
+.button-wrapper:focus-within {
+  outline: 4px solid var(--accent);
+  border-radius: 0.5rem;
+}
+
+.today-month-str {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--not-quite-black);
+}
+

@@ -8,6 +8,7 @@ import { useApp } from "./useApp";
 import { WeatherCard } from "./components/WeatherCard";
 import { IGetWeatherDataResponse } from "./data/getWeatherData";
 import { ClockCard } from "./components/ClockCard";
+import { CalendarCard } from "./components/CalendarCard";
 import { WarningCircle } from "@phosphor-icons/react";
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
   return (
     <>
       <div className="cards">
+        <Card cardTitle="Calendar" dynamicClass="calendar" variant="sm">
+          <CalendarCard />
+        </Card>
         <Card cardTitle="Clock" dynamicClass="clock" variant="sm">
           <ClockCard />
         </Card>

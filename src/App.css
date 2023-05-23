@@ -1,6 +1,6 @@
 .cards {
   display: grid;
-  grid-template: "a b";
+  grid-template: "a b c";
   gap: 2rem;
   justify-content: center;
 }
