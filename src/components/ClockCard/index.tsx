@@ -17,66 +17,81 @@ const months = [
   "Dezember",
 ];
 
-const date = new Date();
-const month = date.getMonth();
+const now = new Date();
 
 function Clock() {
-  const [date, setDate] = useState(new Date());
-
-  function refreshClock() {
-    setDate(new Date());
-  }
-
-  useEffect(() => {
-    refreshClock();
+  const [date, setDate] = useState({
+    hours: now.getHours(),
+    minutes: now.getMinutes(),
+    seconds: now.getSeconds(),
   });
-
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date();
+      setDate({
+        hours: now.getHours(),
+        minutes: now.getMinutes(),
+        seconds: now.getSeconds(),
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <span
       className="hour-now"
       onClick={() => {
         navigator.clipboard.writeText(
-          date.toLocaleTimeString().substring(0, 5)
+          `${date.hours < 10 ? `0${date.hours}` : date.hours}:${
+            date.minutes < 10 ? `0${date.minutes}` : date.minutes
+          }`
         );
       }}
     >
-      {date.toLocaleTimeString().substring(0, 5)}
+      {`${date.hours < 10 ? `0${date.hours}` : date.hours}:${
+        date.minutes < 10 ? `0${date.minutes}` : date.minutes
+      }`}
     </span>
   );
 }
 
 function Week() {
-  const [date, setDate] = useState(new Date());
-
-  function refreshWeek() {
-    setDate(new Date());
-  }
-
-  useEffect(() => {
-    refreshWeek();
+  const [date, setDate] = useState({
+    weekday: now.toLocaleDateString("en", { weekday: "long" }),
   });
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date();
+      setDate({
+        weekday: now.toLocaleDateString("en", { weekday: "long" }),
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-  return (
-    <span className="weekday">
-      {date.toLocaleDateString("en", { weekday: "long" })}
-    </span>
-  );
+  return <span className="weekday">{date.weekday}</span>;
 }
 
 function Today() {
-  const [date, setDate] = useState(new Date());
-
-  function refreshClock() {
-    setDate(new Date());
-  }
-
-  useEffect(() => {
-    refreshClock();
+  const [date, setDate] = useState({
+    today: now.getDate(),
+    month: now.getMonth(),
+    year: now.getFullYear(),
   });
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date();
+      setDate({
+        today: now.getDate(),
+        month: now.getMonth(),
+        year: now.getFullYear(),
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <span className="today">
-      {`${date.getDate()} ${months[month]}, ${date.getFullYear()}`}
+      {`${date.today} ${months[date.month]}, ${date.year}`}
     </span>
   );
 }

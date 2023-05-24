@@ -24,6 +24,7 @@
   font-weight: bold;
   font-size: 1rem;
   border-radius: 0.5rem;
+  transition: all 0.5s ease;
 }
 
 .prev-button:hover,
@@ -43,4 +44,3 @@
   font-weight: bold;
   color: var(--not-quite-black);
 }
-
