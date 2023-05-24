@@ -1,0 +1,41 @@
+.contact-wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4.5rem;
+  gap: 2rem;
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-link svg {
+  font-size: 4rem;
+  color: var(--not-quite-black);
+  background: var(--accent-alt-opacity);
+  border-radius: 2rem;
+  padding: 1rem;
+  transition: all 0.5s ease;
+}
+
+.contact-title {
+  margin-top: 0.5rem;
+  color: var(--not-quite-black);
+  font-weight: 500;
+  transition: all 0.5s ease;
+}
+
+.contact-link:hover svg {
+  color: var(--accent);
+  background: var(--accent-alt);
+}
+
+.contact-link:hover span {
+  color: var(--accent);
+}

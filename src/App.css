@@ -1,6 +1,15 @@
 .cards {
-  display: grid;
-  grid-template: "a b c";
+  display: flex;
+  flex-direction: row;
   gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 85rem;
+}
+
+.all-contents {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }

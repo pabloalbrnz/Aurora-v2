@@ -12,8 +12,14 @@
   --warn: #ed4245;
 }
 
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   background-color: var(--accent-alt);
+  margin: 0;
 }
 
 * {
@@ -21,6 +27,12 @@ body {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-decoration: none;
+}
+
+*:link,
+*:visited {
+  color: inherit;
 }
 
 *::selection {
