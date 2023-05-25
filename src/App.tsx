@@ -11,6 +11,7 @@ import { ClockCard } from "./components/ClockCard";
 import { CalendarCard } from "./components/CalendarCard";
 import { WarningCircle } from "@phosphor-icons/react";
 import { ContactCard } from "./components/ContactCard";
+import { AuthorsCard } from "./components/AuthorsCard";
 
 function App() {
   const { actions, states } = useApp();
@@ -45,6 +46,9 @@ function App() {
                 ),
               }}
             />
+          </Card>
+          <Card cardTitle="Authors" dynamicClass="authors" variant="sm">
+            <AuthorsCard />
           </Card>
           <Card cardTitle="Contact" dynamicClass="contact" variant="hmd">
             <ContactCard />
