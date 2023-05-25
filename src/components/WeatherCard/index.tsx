@@ -76,11 +76,13 @@ export function WeatherCard({
             </span>
           </div>
           <div className="weather-info-wrapper">
-            <span className="humidity">
-              <b>Humidity:</b> {weatherCardData.humidity}%
+            <span className="temp-min-max">
+              <b>Min:</b> {weatherCardData.temp_min.toString().substring(0, 2)}°{" "}
+              <b>Max:</b> {weatherCardData.temp_max.toString().substring(0, 2)}°
             </span>
-            <span className="pressure">
-              <b>Pressure:</b> {weatherCardData.pressure}hPa
+            <span className="feels-like">
+              <b>Feels Like:</b>{" "}
+              {weatherCardData.feels_like.toString().substring(0, 2)}°
             </span>
           </div>
           <div>

@@ -1,11 +1,12 @@
+.pulse-wrapper,
+.paulo-wrapper,
 .contact-wrapper {
-  padding: 2rem;
+  padding: 1.25rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-top: 4.5rem;
-  gap: 2rem;
+  gap: 0rem 2rem;
 }
 
 .contact-link {
@@ -14,6 +15,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.contact-link svg.contact-icon {
+  color: var(--accent);
+}
+
 
 .contact-link svg {
   font-size: 4rem;

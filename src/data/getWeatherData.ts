@@ -5,6 +5,9 @@ export interface IGetWeatherDataResponse {
   icon: string;
   humidity: number;
   pressure: number;
+  feels_like: number;
+  temp_min: number;
+  temp_max: number;
   name: string;
 }
 
@@ -26,6 +29,9 @@ export async function getWeatherData(
         humidity: data.main.humidity,
         pressure: data.main.pressure,
         name: data.name,
+        feels_like: data.main.feels_like,
+  temp_min: data.main.temp_min,
+  temp_max: data.main.temp_max,
       };
     });
 
