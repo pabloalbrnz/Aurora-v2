@@ -37,7 +37,7 @@ function CalendarDays({ nav }) {
         <div
           key={index}
           className={`day ${d.value === "padding" ? "padding" : ""} ${
-            d.isCurrentDay ? "currentDay" : ""
+            d.isCurrentDay ? "current-day" : ""
           }`}
         >
           {d.value === "padding" ? "" : d.value}

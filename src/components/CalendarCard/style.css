@@ -1,7 +1,7 @@
 .calendar-wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 1rem;
   gap: 2rem;
   align-items: center;
   justify-content: center;
@@ -43,6 +43,7 @@
   justify-content: space-between;
   width: 19rem;
   margin-top: -1rem;
+  font-weight: 500;
 }
 
 .calendar-weekdays span {
@@ -52,13 +53,13 @@
 }
 
 .calendar-days {
-  margin-top: -1rem;
+  margin-top: -1.25rem;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 19rem;
   justify-content: center;
   align-items: center;
-  grid-gap: 1rem;
+  grid-gap: 0.75rem 1rem;
 }
 
 .day {
@@ -68,5 +69,28 @@
   max-width: 30px;
   min-width: 30px;
   background: var(--accent-alt-opacity);
+  color: var(--not-quite-black);
   aspect-ratio: 1/1;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.padding {
+  background: none;
+}
+
+.current-day {
+  background: var(--accent);
+  color: var(--not-quite-white);
+  transition: all 0.5s ease;
+}
+
+.current-day:hover {
+  background: var(--dark-accent);
+}
+
+.day:hover {
+  background: var(--accent-alt);
+  color: var(--accent);
 }
