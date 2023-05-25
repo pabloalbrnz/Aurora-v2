@@ -43,8 +43,6 @@ export const useDate = (nav) => {
 
     const daysArr = [];
 
-    console.log(paddingDays);
-
     for (
       let i = new Date(year, prevMonth + 1, 0).getDate(), z = 0;
       i >= paddingDays && z < paddingDays;
@@ -71,7 +69,16 @@ export const useDate = (nav) => {
         });
       }
     }
+    for (let i = 1; daysArr.length <= 41; i++) {
+      const inactiveDayString = `${i}/${nextMonth + 1}/${year}`;
 
+      daysArr.push({
+        class: "inactive",
+        value: i,
+        isCurrentDay: false,
+        date: inactiveDayString,
+      });
+    }
     setDays(daysArr);
   }, [nav]);
 
