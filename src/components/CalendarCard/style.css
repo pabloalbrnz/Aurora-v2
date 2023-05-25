@@ -76,8 +76,14 @@
   transition: all 0.5s ease;
 }
 
-.padding {
-  background: none;
+.day.inactive {
+  background: var(--gray-opacity);
+  color: var(--dark-gray);
+}
+
+.day.inactive:hover {
+  background: var(--gray-opacity);
+  color: var(--not-quite-black);
 }
 
 .current-day {

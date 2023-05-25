@@ -5,8 +5,6 @@ import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 
 export interface ICalendarCardProps {}
 
-const date = new Date();
-
 function CalendarHeader({ nav, setNav }) {
   const { days, dateDisplay } = useDate(nav);
   return (
@@ -36,11 +34,11 @@ function CalendarDays({ nav }) {
       {days.map((d, index) => (
         <div
           key={index}
-          className={`day ${d.value === "padding" ? "padding" : ""} ${
+          className={`day ${d.class === "inactive" ? "inactive" : "active"} ${
             d.isCurrentDay ? "current-day" : ""
           }`}
         >
-          {d.value === "padding" ? "" : d.value}
+          {d.value}
         </div>
       ))}
     </div>

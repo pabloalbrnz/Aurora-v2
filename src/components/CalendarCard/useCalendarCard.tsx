@@ -24,6 +24,9 @@ export const useDate = (nav) => {
     const month = dt.getMonth();
     const year = dt.getFullYear();
 
+    let prevMonth = month - 1 < 0 ? 11 : month - 1;
+    let nextMonth = month + 1 > 11 ? 0 : month + 1;
+
     const firstDayOfMonth = new Date(year, month, 1);
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const dateString = firstDayOfMonth.toLocaleDateString("en-us", {
@@ -40,27 +43,37 @@ export const useDate = (nav) => {
 
     const daysArr = [];
 
+    console.log(paddingDays);
+
+    for (
+      let i = new Date(year, prevMonth + 1, 0).getDate(), z = 0;
+      i >= paddingDays && z < paddingDays;
+      i--, z++
+    ) {
+      const inactiveDayString = `${i - paddingDays}/${prevMonth + 1}/${year}`;
+
+      daysArr.unshift({
+        class: "inactive",
+        value: i,
+        isCurrentDay: false,
+        date: inactiveDayString,
+      });
+    }
     for (let i = 1; i <= paddingDays + daysInMonth; i++) {
-      const dayString = `${month + 1}/${i - paddingDays}/${year}`;
+      const dayString = `${i - paddingDays}/${month + 1}/${year}`;
 
       if (i > paddingDays) {
         daysArr.push({
+          class: "active",
           value: i - paddingDays,
           isCurrentDay: i - paddingDays === day && nav === 0,
           date: dayString,
-        });
-      } else {
-        daysArr.push({
-          value: "padding",
-          isCurrentDay: false,
-          date: "",
         });
       }
     }
 
     setDays(daysArr);
   }, [nav]);
-
 
   return {
     days,
