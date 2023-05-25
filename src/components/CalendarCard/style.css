@@ -7,40 +7,48 @@
   justify-content: center;
 }
 
-.today-month {
+.calendar-header div {
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-width: 20rem;
 }
 
-.prev-button,
-.next-button {
-  padding: 0.25rem 0.75rem;
-  aspect-ratio: 1/1;
+.calendar-month-text {
+  color: var(--not-quite-black);
+  font-weight: bold;
+}
+
+.calendar-prev-button,
+.calendar-next-button {
+  padding: 0.5rem;
+
   border: none;
   background: var(--accent-alt-opacity);
-  color: var(--accent);
-  font-weight: bold;
+  color: var(--not-quite-black);
   font-size: 1rem;
   border-radius: 0.5rem;
   transition: all 0.5s ease;
 }
 
-.prev-button:hover,
-.next-button:hover {
+.calendar-prev-button:hover,
+.calendar-next-button:hover {
   background: var(--accent-alt);
-  color: var(--not-quite-black);
+  color: var(--accent);
   cursor: pointer;
 }
 
-.button-wrapper:focus-within {
-  outline: 4px solid var(--accent);
-  border-radius: 0.5rem;
+.calendar-weekdays {
+  display: flex;
+  justify-content: space-between;
+  width: 19rem;
+  margin-top: -1rem;
 }
 
-.today-month-str {
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--not-quite-black);
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 19rem;
+  justify-content: center;
+  align-items: center;
 }
