@@ -61,7 +61,6 @@ export const useDate = (nav) => {
     setDays(daysArr);
   }, [nav]);
 
-// teste
 
   return {
     days,
