@@ -7,10 +7,8 @@ export interface ICalendarCardProps {}
 
 const date = new Date();
 
-const [nav, setNav] = useState(0);
-const { days, dateDisplay } = useDate(nav);
-
-function CalendarHeader() {
+function CalendarHeader({ nav, setNav }) {
+  const { days, dateDisplay } = useDate(nav);
   return (
     <div className="calendar-header">
       <div>
@@ -31,11 +29,13 @@ function CalendarHeader() {
   );
 }
 
-function CalendarDays() {
+function CalendarDays({ nav }) {
+  const { days, dateDisplay } = useDate(nav);
   return (
     <div className="calendar-days">
       {days.map((d, index) => (
         <div
+          key={index}
           className={`day ${d.value === "padding" ? "padding" : ""} ${
             d.isCurrentDay ? "currentDay" : ""
           }`}
@@ -47,10 +47,11 @@ function CalendarDays() {
   );
 }
 
-export function CalendarCard({}: ICalendarCardProps) {
+function Calendar() {
+  const [nav, setNav] = useState(0);
   return (
     <div className="calendar-wrapper">
-      <CalendarHeader />
+      <CalendarHeader nav={nav} setNav={setNav} />
       <div className="calendar-weekdays">
         <span>Sun</span>
         <span>Mon</span>
@@ -60,7 +61,11 @@ export function CalendarCard({}: ICalendarCardProps) {
         <span>Fri</span>
         <span>Sat</span>
       </div>
-      <CalendarDays />
+      <CalendarDays nav={nav} />
     </div>
   );
+}
+
+export function CalendarCard({}: ICalendarCardProps) {
+  return <Calendar />;
 }
