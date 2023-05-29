@@ -50,20 +50,22 @@ function CalendarDays({ nav }) {
 
   return (
     <div className="calendar-days">
-      {days.map((d, index) => (
-        <div
-          key={index}
-          className={`day ${d.class === "inactive" ? "inactive" : "active"} ${
-            currentDayIndex === index
-              ? d.month == currentMonth + 1
-                ? "current-day"
+      {days.map((d, index) => {
+        return (
+          <div
+            key={index}
+            className={`day ${d.class === "inactive" ? "inactive" : "active"} ${
+              currentDayIndex === index
+                ? d.month === currentMonth + 1
+                  ? "current-day"
+                  : ""
                 : ""
-              : ""
-          }`}
-        >
-          {d.value}
-        </div>
-      ))}
+            }`}
+          >
+            {d.value}
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -82,12 +84,16 @@ function Calendar() {
           const [weekToday, setWeekToday] = useState("");
           useEffect(() => {
             const timer = setInterval(() => {
-              today === weekday ? setWeekToday("calendar-weekday-today") : "";
+              today === weekday
+                ? nav == 0
+                  ? setWeekToday("calendar-weekday-today")
+                  : ""
+                : "";
             }, 1000);
             return () => clearInterval(timer);
           }, [weekToday, setWeekToday]);
           return (
-            <span key={index} className={nav == 0 ? weekToday : ""}>
+            <span key={index} className={weekToday}>
               {weekday}
             </span>
           );
