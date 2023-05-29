@@ -53,6 +53,7 @@ export const useDate = (nav) => {
       daysArr.unshift({
         class: "inactive",
         value: i,
+        month: month,
         isCurrentDay: false,
         date: inactiveDayString,
       });
@@ -64,6 +65,7 @@ export const useDate = (nav) => {
         daysArr.push({
           class: "active",
           value: i - paddingDays,
+          month: month,
           isCurrentDay: i - paddingDays === day && nav === 0,
           date: dayString,
         });
@@ -75,6 +77,7 @@ export const useDate = (nav) => {
       daysArr.push({
         class: "inactive",
         value: i,
+        month: month,
         isCurrentDay: false,
         date: inactiveDayString,
       });

@@ -31,6 +31,7 @@ function CalendarDays({ nav }) {
   const { days, dateDisplay } = useDate(nav);
 
   const [currentDayIndex, setCurrentDayIndex] = useState(null);
+  const currentMonth = new Date().getMonth();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -53,7 +54,9 @@ function CalendarDays({ nav }) {
         <div
           key={index}
           className={`day ${d.class === "inactive" ? "inactive" : "active"} ${
-            currentDayIndex === index ? "current-day" : ""
+            currentDayIndex === index && d.month == currentMonth
+              ? "current-day"
+              : ""
           }`}
         >
           {d.value}
