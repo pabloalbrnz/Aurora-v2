@@ -54,8 +54,10 @@ function CalendarDays({ nav }) {
         <div
           key={index}
           className={`day ${d.class === "inactive" ? "inactive" : "active"} ${
-            currentDayIndex === index && d.month == currentMonth
-              ? "current-day"
+            currentDayIndex === index
+              ? d.month == currentMonth + 1
+                ? "current-day"
+                : ""
               : ""
           }`}
         >
@@ -85,7 +87,7 @@ function Calendar() {
             return () => clearInterval(timer);
           }, [weekToday, setWeekToday]);
           return (
-            <span key={index} className={weekToday}>
+            <span key={index} className={nav == 0 ? weekToday : ""}>
               {weekday}
             </span>
           );
