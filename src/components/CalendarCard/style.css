@@ -52,6 +52,10 @@
   justify-content: center;
 }
 
+.calendar-weekday-today {
+  color: var(--accent);
+}
+
 .calendar-days {
   margin-top: -1.25rem;
   display: grid;

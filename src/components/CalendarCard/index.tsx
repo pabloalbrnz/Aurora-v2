@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.css";
 import { useDate } from "./useCalendarCard";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
@@ -29,13 +29,31 @@ function CalendarHeader({ nav, setNav }) {
 
 function CalendarDays({ nav }) {
   const { days, dateDisplay } = useDate(nav);
+
+  const [currentDayIndex, setCurrentDayIndex] = useState(null);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const now = new Date();
+      const currentDay = now.getDate();
+
+      const foundIndex = days.findIndex((d) => d.value === currentDay);
+
+      setCurrentDayIndex(foundIndex);
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalId); // Cleanup the interval on component unmount
+    };
+  }, []);
+
   return (
     <div className="calendar-days">
       {days.map((d, index) => (
         <div
           key={index}
           className={`day ${d.class === "inactive" ? "inactive" : "active"} ${
-            d.isCurrentDay ? "current-day" : ""
+            currentDayIndex === index ? "current-day" : ""
           }`}
         >
           {d.value}
@@ -47,17 +65,28 @@ function CalendarDays({ nav }) {
 
 function Calendar() {
   const [nav, setNav] = useState(0);
+  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const today = new Date().toLocaleDateString("en-us", {
+    weekday: "short",
+  });
   return (
     <div className="calendar-wrapper">
       <CalendarHeader nav={nav} setNav={setNav} />
       <div className="calendar-weekdays">
-        <span>Sun</span>
-        <span>Mon</span>
-        <span>Tue</span>
-        <span>Wed</span>
-        <span>Thu</span>
-        <span>Fri</span>
-        <span>Sat</span>
+        {weekdays.map((weekday, index) => {
+          const [weekToday, setWeekToday] = useState("");
+          useEffect(() => {
+            const timer = setInterval(() => {
+              today === weekday ? setWeekToday("calendar-weekday-today") : "";
+            }, 1000);
+            return () => clearInterval(timer);
+          }, [weekToday, setWeekToday]);
+          return (
+            <span key={index} className={weekToday}>
+              {weekday}
+            </span>
+          );
+        })}
       </div>
       <CalendarDays nav={nav} />
     </div>
