@@ -30,24 +30,6 @@ function CalendarHeader({ nav, setNav }) {
 function CalendarDays({ nav }) {
   const { days, dateDisplay } = useDate(nav);
 
-  const [currentDayIndex, setCurrentDayIndex] = useState(null);
-  const currentMonth = new Date().getMonth();
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const now = new Date();
-      const currentDay = now.getDate();
-
-      const foundIndex = days.findIndex((d) => d.value === currentDay);
-
-      setCurrentDayIndex(foundIndex);
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId); // Cleanup the interval on component unmount
-    };
-  }, []);
-
   return (
     <div className="calendar-days">
       {days.map((d, index) => {
@@ -55,11 +37,7 @@ function CalendarDays({ nav }) {
           <div
             key={index}
             className={`day ${d.class === "inactive" ? "inactive" : "active"} ${
-              currentDayIndex === index
-                ? d.month === currentMonth + 1
-                  ? "current-day"
-                  : ""
-                : ""
+              d.isCurrentDay ? "current-day" : ""
             }`}
           >
             {d.value}

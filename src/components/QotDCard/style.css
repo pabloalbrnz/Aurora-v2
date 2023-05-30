@@ -1,0 +1,37 @@
+.qotd-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2rem;
+  margin-top: 1.5rem;
+
+  width: 52rem;
+}
+
+.qotd-quote {
+  max-width: 47rem;
+}
+
+.qotd-quote-string {
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--dark-gray);
+}
+
+.qotd-quote-info {
+  display: flex;
+  justify-content: space-between;
+  width: 47rem;
+  font-size: 1.5rem;
+}
+
+.qotd-category-string {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.qotd-author-string {
+  font-weight: 500;
+}

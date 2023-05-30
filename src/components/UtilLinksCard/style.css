@@ -1,0 +1,28 @@
+.util-links-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.util-links-buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+.util-links-button {
+  background: var(--accent-alt-opacity);
+  color: var(--not-quite-black);
+  padding: 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.util-links-button svg {
+  font-size: 4rem;
+}
+
+.util-links-button:hover {
+  background: var(--accent-alt);
+  color: var(--accent);
+}

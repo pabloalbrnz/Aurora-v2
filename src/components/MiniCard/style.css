@@ -1,0 +1,39 @@
+.minicard {
+  padding: 2rem;
+  background-color: var(--not-quite-white);
+  border-radius: 4rem;
+  box-shadow: -1px 1px 5px #1111112c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+
+  transition: all 0.5s ease;
+}
+
+.minicard-sm {
+  min-width: 23rem;
+  width: 23rem;
+  height: 11.5rem;
+}
+
+.minicard-md {
+    width: 52rem;
+    height: 11.5rem;
+}
+
+.minicard-lg {
+    width: 80rem;
+    height: 11.5rem;
+}
+
+.minicard-title {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: -0.5rem;
+}
+
+.minicard-wrapper {
+  display: flex;
+  justify-content: center;
+}

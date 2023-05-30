@@ -24,7 +24,7 @@ body {
 }
 
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", "Montserrat", sans-serif;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;

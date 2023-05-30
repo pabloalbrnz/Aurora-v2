@@ -12,6 +12,9 @@ import { CalendarCard } from "./components/CalendarCard";
 import { WarningCircle } from "@phosphor-icons/react";
 import { ContactCard } from "./components/ContactCard";
 import { AuthorsCard } from "./components/AuthorsCard";
+import { MiniCard } from "./components/MiniCard";
+import { QotdCard } from "./components/QotDCard";
+import { UtilLinksCard } from "./components/UtilLinksCard";
 
 function App() {
   const { actions, states } = useApp();
@@ -19,6 +22,20 @@ function App() {
     <>
       <div className="all-contents">
         <div className="cards">
+          <MiniCard
+            cardTitle="Quote of the day"
+            dynamicClass="qotd"
+            variant="md"
+          >
+            <QotdCard />
+          </MiniCard>
+          <MiniCard
+            cardTitle="Util links"
+            dynamicClass="utils-link"
+            variant="sm"
+          >
+            <UtilLinksCard />
+          </MiniCard>
           <Card cardTitle="Calendar" dynamicClass="calendar" variant="sm">
             <CalendarCard />
           </Card>
