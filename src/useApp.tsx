@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { getWeatherData, IGetWeatherDataResponse } from "./data/getWeatherData";
 
 export function useApp() {
-  const [city, setCity] = useState("");
+  const [cityWeather, setCityWeather] = useState("");
   const [weatherData, setWheatherData] = useState<IGetWeatherDataResponse>();
   const [helperText, setHelperText] = useState("");
   const [errorText, setErrorText] = useState("");
@@ -15,7 +15,7 @@ export function useApp() {
     setErrorText("");
   }
 
-  function checkIfInputExists(input: string): boolean {
+  function checkIfInputExistsWeather(input: string): boolean {
     if (input.trim().length) {
       return true;
     }
@@ -26,17 +26,17 @@ export function useApp() {
     return false;
   }
   async function getCityWeather() {
-    if (checkIfInputExists(city)) {
-      const data = await getWeatherData(city);
+    if (checkIfInputExistsWeather(cityWeather)) {
+      const data = await getWeatherData(cityWeather);
       setWheatherData(data);
-      setCity("");
+      setCityWeather("");
     }
   }
 
   return {
     states: {
-      city,
-      setCity,
+      cityWeather,
+      setCityWeather,
       weatherData,
       helperText,
       setWheatherData,

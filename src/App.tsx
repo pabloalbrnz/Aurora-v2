@@ -15,6 +15,7 @@ import { AuthorsCard } from "./components/AuthorsCard";
 import { MiniCard } from "./components/MiniCard";
 import { QotdCard } from "./components/QotDCard";
 import { UtilLinksCard } from "./components/UtilLinksCard";
+import { PomodoroCard } from "./components/PomodoroCard";
 
 function App() {
   const { actions, states } = useApp();
@@ -44,13 +45,13 @@ function App() {
           </Card>
           <Card cardTitle="Weather" dynamicClass="weather" variant="sm">
             <WeatherCard
-              citySearchvalue={states.city}
+              citySearchvalue={states.cityWeather}
               weatherCardData={states.weatherData as IGetWeatherDataResponse}
               handleSubmit={() => {
                 actions.getCityWeather();
               }}
               onChange={(e) => {
-                states.setCity(e.target.value);
+                states.setCityWeather(e.target.value);
                 actions.resetHelperText();
                 states.setWheatherData(undefined);
               }}
@@ -63,6 +64,9 @@ function App() {
                 ),
               }}
             />
+          </Card>
+          <Card cardTitle="Pomodoro" dynamicClass="pomodoro" variant="hmd">
+            <PomodoroCard />
           </Card>
           <Card cardTitle="Authors" dynamicClass="authors" variant="sm">
             <AuthorsCard />
